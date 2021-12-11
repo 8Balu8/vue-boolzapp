@@ -9,7 +9,7 @@
 .app-container {
 	width: 100%;
 	height: 100vh;
-	background-color: #009587;
+	background: linear-gradient(to bottom, #009588 15%, #d9dbd5 0%);
 	display: flex;
 	justify-content: center;
 	align-items: center;
