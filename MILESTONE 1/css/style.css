@@ -158,6 +158,7 @@
 	height: calc(100% - 100px);
 	background-image: url(../img/mine.jpg);
 	padding: 20px;
+	overflow-y: auto;
 }
 .row-message {
 	min-height: 50px;
