@@ -70,29 +70,14 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="messages-container">
+                <div class="messages-container" v-for="contact,index in contacts">
+                    <span>{{index}}</span>
                     <div class="row-message">
-                        <div class="received-message">
+                        <div class="messages received" :class="{'sent':contact.messages[activeContact].status === 'sent'}">
                             <div class="text-msg">
-                                Ciao come stai?
+                                {{contact.messages[activeContact].text}}
                             </div>
-                            <div class="time-clock">18.15</div>
-                        </div>    
-                    </div>
-                    <div class="row-message">
-                        <div class="sent-message">
-                            <div class="text-msg">
-                                Bene grazie. Te?
-                            </div>
-                            <div class="time-clock">18.21</div>
-                        </div>    
-                    </div>
-                    <div class="row-message">
-                        <div class="received-message">
-                            <div class="text-msg">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, architecto nulla sed temporibus, optio quae accusamus magni vel nobis corporis, nostrum dolore iure numquam omnis dolores id modi sit esse?
-                            </div>
-                            <div class="time-clock">18.23</div>
+                            <div class="data-clock">{{contact.messages[activeContact].date}}</div>
                         </div>    
                     </div>
                 </div>

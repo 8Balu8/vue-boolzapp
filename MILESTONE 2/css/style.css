@@ -163,22 +163,22 @@
 .row-message {
 	min-height: 50px;
 }
-.received-message,
-.sent-message {
+.messages {
 	font-size: small;
 	padding: 5px 10px;
 	border-radius: 5px;
 	max-width: 60%;
+	min-width: 30%;
 }
-.received-message {
+.received {
 	background-color: #ffffff;
 	float: left;
 }
-.sent-message {
+.sent {
 	background-color: #d5f9ba;
 	float: right;
 }
-.time-clock {
+.data-clock {
 	font-size: x-small;
 	color: #b1b1b1;
 	text-align: right;
