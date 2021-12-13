@@ -132,6 +132,12 @@
 	align-items: center;
 	cursor: pointer;
 }
+.contact:hover {
+	background-color: #a0a6a7;
+}
+.activegrey {
+	background-color: #b1b1b1;
+}
 .contact-name {
 	height: 70%;
 	margin-left: 10px;

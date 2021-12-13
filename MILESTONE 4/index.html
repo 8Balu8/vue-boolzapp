@@ -43,7 +43,7 @@
                 </div>
                 <div class="container-list-contacts">
                     <ul class="list-contacts" v-for="contact, index in contacts" v-if="contact.visible">
-                        <li class="contact" @click="selectActiveContact(index)">
+                        <li class="contact" @click="selectActiveContact(index)" :class="{activegrey: activeContact === index}">
                             <img class="contact-image" :src="'img/avatar' + contacts[index].avatar + '.jpg'" alt="Avatar">
                             <div class="contact-name">
                                 {{contact.name}}
