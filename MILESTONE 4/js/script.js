@@ -25,6 +25,7 @@ const app = new Vue({
 				name: 'Michele',
 				avatar: '_1',
 				visible: true,
+				lastAccess: dayjs().format('16:15'),
 				messages: [
 					{
 						date: '10/01/2020 15:30:55',
@@ -47,6 +48,7 @@ const app = new Vue({
 				name: 'Fabio',
 				avatar: '_2',
 				visible: true,
+				lastAccess: dayjs().format('16:30'),
 				messages: [
 					{
 						date: '20/03/2020 16:30:00',
@@ -69,6 +71,7 @@ const app = new Vue({
 				name: 'Samuele',
 				avatar: '_3',
 				visible: true,
+				lastAccess: dayjs().format('16:15'),
 				messages: [
 					{
 						date: '28/03/2020 10:10:40',
@@ -91,6 +94,7 @@ const app = new Vue({
 				name: 'Luisa',
 				avatar: '_4',
 				visible: true,
+				lastAccess: dayjs().format('15:50'),
 				messages: [
 					{
 						date: '10/01/2020 15:30:55',
@@ -128,6 +132,7 @@ const app = new Vue({
 					status: 'received',
 					date: dayjs().format('DD/MM/YYYY HH:mm:ss')
 				});
+				this.contacts[this.activeContact].lastAccess = dayjs().format('HH:mm');
 			}, 1000);
 		},
 		filterContact: function() {

@@ -61,7 +61,7 @@
                         <img :src="'img/avatar' + contacts[activeContact].avatar + '.jpg'" alt="Avatar" class="user-image">
                         <div class="contact-selected">
                             <span class="font-small">{{contacts[activeContact].name}}</span>
-                            <span class="last-access">Ultimo accesso oggi alle</span>    
+                            <span class="last-access">Ultimo accesso oggi alle {{contacts[activeContact].lastAccess}}</span>    
                         </div>
                     </div>
                     <div class="functions">
