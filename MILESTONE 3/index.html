@@ -85,13 +85,17 @@
                 <div class="write-input">
                     <i class="far fa-smile"></i>
                     <div class="text-input">
-                        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sentMessage" v-model="userMessage">
+                        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage" v-model="userMessage">
                     </div>
                     <i class="fas fa-microphone"></i>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/dayjs"></script>
+    <script>
+      dayjs().format()
+    </script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

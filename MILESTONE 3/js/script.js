@@ -107,12 +107,12 @@ const app = new Vue({
 		selectActiveContact: function(index) {
 			this.activeContact = index;
 		},
-		sentMessage: function() {
+		sendMessage: function() {
 			if (this.userMessage.trim() !== '') {
 				this.contacts[this.activeContact].messages.push({
 					text: this.userMessage,
 					status: 'sent',
-					date: '10/01/2020 15:50:00'
+					date: dayjs().format('DD/MM/YYYY HH:mm:ss')
 				});
 				this.userMessage = '';
 				this.automaticMessage();
@@ -123,7 +123,7 @@ const app = new Vue({
 				this.contacts[this.activeContact].messages.push({
 					text: 'ok',
 					status: 'received',
-					date: '10/01/2020 15:50:00'
+					date: dayjs().format('DD/MM/YYYY HH:mm:ss')
 				});
 			}, 1000);
 		}
