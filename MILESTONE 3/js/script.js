@@ -109,11 +109,23 @@ const app = new Vue({
 		},
 		sentMessage: function() {
 			if (this.userMessage.trim() !== '') {
-				this.myMessage.push({
+				this.contacts[this.activeContact].messages.push({
 					text: this.userMessage,
-					status: 'sent'
+					status: 'sent',
+					date: '10/01/2020 15:50:00'
 				});
+				this.userMessage = '';
+				this.automaticMessage();
 			}
+		},
+		automaticMessage: function() {
+			setTimeout(() => {
+				this.contacts[this.activeContact].messages.push({
+					text: 'ok',
+					status: 'received',
+					date: '10/01/2020 15:50:00'
+				});
+			}, 1000);
 		}
 	}
 });

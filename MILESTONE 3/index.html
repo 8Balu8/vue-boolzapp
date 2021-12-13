@@ -81,20 +81,11 @@
                             </div>
                         </div>    
                     </div>
-                    <div class="row-message" v-for="element in myMessage">
-                        <div class="messages received" :class="{'sent':message.status === 'sent'}">
-                            <div class="text-msg">
-                                {{element.text}}
-                            </div>
-                            <div class="data-clock">
-                            </div>
-                        </div>    
-                    </div>
                 </div>
                 <div class="write-input">
                     <i class="far fa-smile"></i>
                     <div class="text-input">
-                        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sentMessage">
+                        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sentMessage" v-model="userMessage">
                     </div>
                     <i class="fas fa-microphone"></i>
                 </div>
