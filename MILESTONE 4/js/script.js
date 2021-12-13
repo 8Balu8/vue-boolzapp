@@ -19,7 +19,7 @@ const app = new Vue({
 	data: {
 		activeContact: 0,
 		userMessage: '',
-		myMessage: [],
+		userFilter: '',
 		contacts: [
 			{
 				name: 'Michele',
@@ -129,6 +129,15 @@ const app = new Vue({
 					date: dayjs().format('DD/MM/YYYY HH:mm:ss')
 				});
 			}, 1000);
+		},
+		filterContact: function() {
+			this.contacts.forEach((element) => {
+				if (element.name.toLowerCase().includes(this.userFilter.toLowerCase().trim())) {
+					element.visible = true;
+				} else {
+					element.visible = false;
+				}
+			});
 		}
 	}
 });

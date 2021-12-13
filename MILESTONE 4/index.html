@@ -38,11 +38,11 @@
                 <div class="filter-container">
                     <div class="input-icon">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="filter">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="filter" @keyup="filterContact" v-model="userFilter">
                     </div>
                 </div>
                 <div class="container-list-contacts">
-                    <ul class="list-contacts" v-for="contact, index in contacts">
+                    <ul class="list-contacts" v-for="contact, index in contacts" v-if="contact.visible">
                         <li class="contact" @click="selectActiveContact(index)">
                             <img class="contact-image" :src="'img/avatar' + contacts[index].avatar + '.jpg'" alt="Avatar">
                             <div class="contact-name">
