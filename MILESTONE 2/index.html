@@ -42,9 +42,9 @@
                     </div>
                 </div>
                 <div class="container-list-contacts">
-                    <ul class="list-contacts" v-for="contact in contacts">
-                        <li class="contact">
-                            <img class="contact-image" :src="'img/avatar' + [contact.avatar] + '.jpg'" alt="Avatar">
+                    <ul class="list-contacts" v-for="contact, index in contacts">
+                        <li class="contact" @click="selectActiveContact(index)">
+                            <img class="contact-image" :src="'img/avatar' + [activeContact.avatar] + '.jpg'" alt="Avatar">
                             <div class="contact-name">
                                 {{contact.name}}
                             </div>
@@ -70,14 +70,15 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="messages-container" v-for="contact,index in contacts">
-                    <span>{{index}}</span>
+                <div class="messages-container" v-for="contact in contacts[activeContact].messages">
                     <div class="row-message">
                         <div class="messages received" :class="{'sent':contact.messages[activeContact].status === 'sent'}">
                             <div class="text-msg">
-                                {{contact.messages[activeContact].text}}
+                                {{contact.[activeContact].messages.text}}
                             </div>
-                            <div class="data-clock">{{contact.messages[activeContact].date}}</div>
+                            <div class="data-clock">
+                                {{contact.[activeContact].messages.date}}
+                            </div>
                         </div>    
                     </div>
                 </div>
