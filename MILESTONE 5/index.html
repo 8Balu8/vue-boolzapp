@@ -43,10 +43,18 @@
                 </div>
                 <div class="container-list-contacts">
                     <ul class="list-contacts" v-for="contact, index in contacts" v-if="contact.visible">
-                        <li class="contact" @click="selectActiveContact(index)" :class="{activegrey: activeContact === index}">
-                            <img class="contact-image" :src="'img/avatar' + contacts[index].avatar + '.jpg'" alt="Avatar">
-                            <div class="contact-name">
-                                {{contact.name}}
+                        <li class="contact" @click="selectActiveContact(index), showUnderMenu = false" :class="{activegrey: activeContact === index}">
+                            <div class="contact-contain">
+                                <img class="contact-image" :src="'img/avatar' + contacts[index].avatar + '.jpg'" alt="Avatar">
+                                <div class="contact-name">
+                                    {{contact.name}}
+                                    <div class="last-mex">
+                                        {{ contact.messages[contact.messages.length-1].text.slice(0, 20) + ' ' + '...' }}
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="time-last-mex">
+                                {{ contact.messages[contact.messages.length-1].date }}
                             </div>
                         </li>
                     </ul>
@@ -71,17 +79,17 @@
                     </div>
                 </div>
                 <div class="messages-container">
-                    <div class="row-message" v-for="message in contacts[activeContact].messages">
+                    <div class="row-message" v-for="message,index in contacts[activeContact].messages">
                         <div class="messages received" :class="{'sent':message.status === 'sent'}">
                             <div class="text-msg">
                                 {{message.text}}
                                 <span class="arrow-dwn">
-                                    <i class="fas fa-angle-down" @click="showUnderMenu = !showUnderMenu"></i>
+                                    <i class="fas fa-angle-down" @click="toggleShowUnderMenu(index)"></i>
                                 </span>
-                                <div class="under-menu-contain" :class="{'active-under-menu': showUnderMenu === true}">
+                                <div class="under-menu-contain" :class="{'active-under-menu': showUnderMenu === index}">
                                     <ul class="under-menu">
                                         <li>info messaggio</li>
-                                        <li @click="deleteMessage">cancella messaggio</li>
+                                        <li @click="deleteMessage(index)">cancella messaggio</li>
                                     </ul>
                                 </div>
                             </div>
@@ -102,9 +110,6 @@
         </div>
     </div>
     <script src="https://unpkg.com/dayjs"></script>
-    <script>
-      dayjs().format()
-    </script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

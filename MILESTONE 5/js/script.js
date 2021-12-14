@@ -149,6 +149,22 @@ const app = new Vue({
 				}
 			});
 		},
+		toggleShowUnderMenu: function(index) {
+			console.log('PRE: ', this.showUnderMenu, index);
+			if (this.showUnderMenu !== index) {
+				this.showUnderMenu = index;
+			} else {
+				this.showUnderMenu = false;
+			}
+			console.log('post: ', this.showUnderMenu, index);
+		},
+		// addKeyInArray: function() {
+		// 	this.contacts.forEach((element) => {
+		// 		element.messages.forEach((message) => {
+		// 			message['showUnderMenu'] = true;
+		// 		});
+		// 	});
+		// },
 		deleteMessage: function(index) {
 			this.contacts[this.activeContact].messages.splice(index, 1);
 		}

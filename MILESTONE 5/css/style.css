@@ -119,6 +119,9 @@
 	list-style: none;
 	overflow-y: auto;
 }
+.contact-contain {
+	display: flex;
+}
 .contact-image {
 	width: 40px;
 	margin-left: 20px;
@@ -129,6 +132,7 @@
 	border-bottom: 1px solid #fafafa;
 	font-size: small;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	cursor: pointer;
 }
@@ -141,6 +145,14 @@
 .contact-name {
 	height: 70%;
 	margin-left: 10px;
+}
+.time-last-mex {
+	height: 100%;
+	color: grey;
+	min-width: 35%;
+}
+.last-mex {
+	color: grey;
 }
 /* COLUMN-RIGHT */
 .col-right {
