@@ -49,12 +49,12 @@
                                 <div class="contact-name">
                                     {{contact.name}}
                                     <div class="last-mex">
-                                        {{ contact.messages[contact.messages.length-1].text.slice(0, 20) + ' ' + '...' }}
+                                        {{contact.messages.length > 0?contact.messages[contact.messages.length-1].text.slice(0, 20) + ' ' + '...':'' }}
                                     </div> 
                                 </div>
                             </div>
                             <div class="time-last-mex">
-                                {{ contact.messages[contact.messages.length-1].date }}
+                                {{contact.messages[contact.messages.length-1].date}}
                             </div>
                         </li>
                     </ul>
@@ -83,7 +83,7 @@
                         <div class="messages received" :class="{'sent':message.status === 'sent'}">
                             <div class="text-msg">
                                 {{message.text}}
-                                <span class="arrow-dwn">
+                                <span class="arrow-dwn"  >
                                     <i class="fas fa-angle-down" @click="toggleShowUnderMenu(index)"></i>
                                 </span>
                                 <div class="under-menu-contain" :class="{'active-under-menu': showUnderMenu === index}">

@@ -115,6 +115,15 @@ const app = new Vue({
 			}
 		]
 	},
+	created() {
+		// (1) Pushare nuova key all'interno di un oggetto\\\\\\\\\!!!!
+		// this.contacts.forEach((contact) => {
+		// 	contact.messages.forEach((message) => {
+		// 		// message.showUnderMenu = false;
+		// 		message = Object.assign({showUnderMenu:false},)
+		// 	});
+		// });
+	},
 	methods: {
 		selectActiveContact: function(index) {
 			this.activeContact = index;
@@ -125,6 +134,7 @@ const app = new Vue({
 					text: this.userMessage,
 					status: 'sent',
 					date: dayjs().format('DD/MM/YYYY HH:mm:ss')
+					// (1) showUnderMenu: false
 				});
 				this.userMessage = '';
 				this.automaticMessage();
@@ -136,6 +146,7 @@ const app = new Vue({
 					text: 'ok',
 					status: 'received',
 					date: dayjs().format('DD/MM/YYYY HH:mm:ss')
+					// (1) showUnderMenu: false
 				});
 				this.contacts[this.activeContact].lastAccess = dayjs().format('HH:mm');
 			}, 1000);
@@ -150,6 +161,8 @@ const app = new Vue({
 			});
 		},
 		toggleShowUnderMenu: function(index) {
+			// (1) console.log(this.contacts[this.activeContact].messages[index].showUnderMenu);
+			// (1) this.contacts[this.activeContact].messages[index].showUnderMenu = true;
 			console.log('PRE: ', this.showUnderMenu, index);
 			if (this.showUnderMenu !== index) {
 				this.showUnderMenu = index;
@@ -158,15 +171,10 @@ const app = new Vue({
 			}
 			console.log('post: ', this.showUnderMenu, index);
 		},
-		// addKeyInArray: function() {
-		// 	this.contacts.forEach((element) => {
-		// 		element.messages.forEach((message) => {
-		// 			message['showUnderMenu'] = true;
-		// 		});
-		// 	});
-		// },
 		deleteMessage: function(index) {
 			this.contacts[this.activeContact].messages.splice(index, 1);
+			console.log(this.showUnderMenu);
+			this.showUnderMenu = false;
 		}
 	}
 });
