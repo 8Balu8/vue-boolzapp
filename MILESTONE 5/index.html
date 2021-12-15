@@ -48,12 +48,12 @@
                                 <img class="contact-image" :src="'img/avatar' + contacts[index].avatar + '.jpg'" alt="Avatar">
                                 <div class="contact-name">
                                     {{contact.name}}
-                                    <div class="last-mex">
-                                        {{contact.messages.length > 0?contact.messages[contact.messages.length-1].text.slice(0, 20) + ' ' + '...':'' }}
+                                    <div v-if="contact.messages.length > 0" class="last-mex">
+                                        {{contact.messages[contact.messages.length-1].text.slice(0, 20) + '...'}}
                                     </div> 
                                 </div>
                             </div>
-                            <div class="time-last-mex">
+                            <div v-if="contact.messages.length > 0" class="time-last-mex">
                                 {{contact.messages[contact.messages.length-1].date}}
                             </div>
                         </li>
