@@ -129,16 +129,15 @@ const app = new Vue({
 			this.activeContact = index;
 		},
 		sendMessage: function() {
-			if (this.userMessage.trim() !== '') {
-				this.contacts[this.activeContact].messages.push({
-					text: this.userMessage,
-					status: 'sent',
-					date: dayjs().format('DD/MM/YYYY HH:mm:ss')
-					// (1) showUnderMenu: false
-				});
-				this.userMessage = '';
-				this.automaticMessage();
-			}
+			if (this.userMessage.trim() === '') return;
+			this.contacts[this.activeContact].messages.push({
+				text: this.userMessage,
+				status: 'sent',
+				date: dayjs().format('DD/MM/YYYY HH:mm:ss')
+				// (1) showUnderMenu: false
+			});
+			this.userMessage = '';
+			this.automaticMessage();
 		},
 		automaticMessage: function() {
 			setTimeout(() => {
